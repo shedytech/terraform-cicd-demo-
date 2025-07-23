@@ -1,0 +1,10 @@
+[
+  {
+    "labels": {
+      "alertname": "HighCPUUsage"
+    },
+    "annotations": {
+      "description": "CPU usage is above 90%."
+    }
+  }
+]

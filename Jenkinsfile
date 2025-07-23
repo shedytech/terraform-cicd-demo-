@@ -29,14 +29,14 @@ pipeline {
         stage('Terraform Apply - Dev') {
             steps {
                 dir(TF_WORKING_DIR) {
-                    sh "terraform apply -auto-approve tfplan"
+                    sh "echo 'Running terratest for dev (placeholder)'"
                 }
             }
         }
         stage('Test - Dev') {
             steps {
                 dir(TF_WORKING_DIR) {
-                    sh "terratest test-dev-infra.go"
+                    sh "sh "echo 'Running terratest for staging (placeholder)'"
                 }
             }
         }

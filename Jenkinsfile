@@ -97,8 +97,10 @@ pipeline {
             cleanWs()
         }
         success {
-            slackSend channel: '#deployments', message: "Terraform deployment completed successfully for ${env.JOB_NAME} #${env.BUILD_NUMBER}"
+            slackSend channel: '#deployments', message: "✅ Terraform deployment succeeded for ${env.JOB_NAME} #${env.BUILD_NUMBER}"
         }
         failure {
-            slackSend channel: '#deployments', message: "Terraform deployment failed for ${env.JOB_NAME} #${env.BUILD_NUMBER}"
+            slackSend channel: '#deployments', message: "❌ Terraform deployment failed for ${env.JOB_NAME} #${env.BUILD_NUMBER}"
         }
+    }
+}

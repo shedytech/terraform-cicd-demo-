@@ -3,6 +3,7 @@ pipeline {
     environment {
         TERRAFORM_VERSION = '1.5.7'
         TF_WORKING_DIR = 'terraform'
+        TF_VAR_region = 'us-east-1'
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }

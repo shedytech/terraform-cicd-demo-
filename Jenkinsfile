@@ -29,14 +29,14 @@ pipeline {
         stage('Terraform Apply - Dev') {
             steps {
                 dir(TF_WORKING_DIR) {
-                    sh "echo 'Running terratest for dev'"
+                    sh "Running terratest for dev"
                 }
             }
         }
         stage('Test - Dev') {
             steps {
                 dir(TF_WORKING_DIR) {
-                    sh "sh "echo 'Running terratest for staging'"
+                    sh "echo 'Running terratest for staging'"
                 }
             }
         }

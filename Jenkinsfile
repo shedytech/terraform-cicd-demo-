@@ -36,7 +36,7 @@ pipeline {
         stage('Test - Dev') {
             steps {
                 dir(TF_WORKING_DIR) {
-                    sh "echo 'Running terratest for dev (placeholder)'"
+                    sh "echo 'Running terratest for dev-infra.go'"
                 }
             }
         }
@@ -62,7 +62,7 @@ pipeline {
         stage('Test - Staging') {
             steps {
                 dir(TF_WORKING_DIR) {
-                    sh "echo 'Running terratest for staging (placeholder)'"
+                    sh "echo 'Running terratest for staging-infro.go'"
                 }
             }
         }

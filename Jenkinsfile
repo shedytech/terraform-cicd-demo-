@@ -3,7 +3,6 @@ pipeline {
     environment {
         TERRAFORM_VERSION = '1.5.7'
         TF_WORKING_DIR = 'terraform'
-        TF_VAR_region = 'us-east-1'
         AWS_ACCESS_KEY_ID = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
     }
@@ -37,7 +36,7 @@ pipeline {
         stage('Test - Dev') {
             steps {
                 dir(TF_WORKING_DIR) {
-                    sh "echo 'Running terratest for dev-infra.go'"
+                    sh "terratest test-dev-infra.go"
                 }
             }
         }
@@ -63,7 +62,7 @@ pipeline {
         stage('Test - Staging') {
             steps {
                 dir(TF_WORKING_DIR) {
-                    sh "echo 'Running terratest for staging-infro.go'"
+                    sh "terratest test-staging-infra.go"
                 }
             }
         }
@@ -88,7 +87,7 @@ pipeline {
         }
         stage('Monitoring Setup') {
             steps {
-                sh "echo 'POST to Prometheus Alertmanager (placeholder)'"
+                sh "curl -X POST http://prometheus:9090/api/v1/alerts -d @alerts.json"
             }
         }
     }
